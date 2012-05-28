@@ -21,3 +21,8 @@ Usage
 =====
 
 Set the host and port properties on the node and include the "graphite-handler::default" recipe.
+
+Credits
+=======
+
+The handler was originally written by Ian Meyer and was converted to a cookbook by Peter Donald.
