@@ -1,5 +1,23 @@
-# HEY!!!!
+Description
+===========
 
-Please see the [wiki](https://github.com/imeyer/chef-handler-graphite/wiki) for instructions on how to use.
+A cookbook that a handler that sends chef run results to graphite.
 
-Patches welcome, just send me a pull request!
+Requirements
+============
+
+none.
+
+Attributes
+==========
+
+This cookbook uses the following attributes to configure how it is installed.
+
+* `node['chef_client']['handler']['graphite']['host']` - The graphite server host.
+* `node['chef_client']['handler']['graphite']['port']` - The graphite server port.
+* `node['chef_client']['handler']['graphite']['prefix']` - The prefix appended to statistics sent to graphite. Defaults to "#{node.chef_environment}.node.#{node['hostname']}.chef".
+
+Usage
+=====
+
+Set the host and port properties on the node and include the "graphite-handler::default" recipe.
