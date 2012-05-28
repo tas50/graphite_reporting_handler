@@ -15,7 +15,7 @@ This cookbook uses the following attributes to configure how it is installed.
 
 * `node['chef_client']['handler']['graphite']['host']` - The graphite server host.
 * `node['chef_client']['handler']['graphite']['port']` - The graphite server port.
-* `node['chef_client']['handler']['graphite']['prefix']` - The prefix appended to statistics sent to graphite. Defaults to "#{node.chef_environment}.node.#{node['hostname']}.chef".
+* `node['chef_client']['handler']['graphite']['prefix']` - The prefix appended to statistics sent to graphite. Defaults to `"#{node.chef_environment}.node.#{node['hostname']}.chef"`.
 
 Usage
 =====
