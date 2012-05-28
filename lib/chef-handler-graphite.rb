@@ -32,14 +32,6 @@ class GraphiteReporting < Chef::Handler
   end
 
   def report
-    gemspec = if Gem::Specification.respond_to? :find_by_name
-      Gem::Specification.find_by_name('chef-handler-graphite')
-    else
-      Gem.source_index.find_name('chef-handler-graphite').last
-    end
-
-    Chef::Log.debug("#{gemspec.full_name} loaded as a handler.")
-
     g = Graphite.new
     g.host = @graphite_host
     g.port = @graphite_port
