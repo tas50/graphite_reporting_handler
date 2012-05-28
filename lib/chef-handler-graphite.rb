@@ -16,8 +16,6 @@
 # limitations under the License.
 #
 
-require "rubygems"
-Gem.clear_paths
 require "simple-graphite"
 require "chef"
 require "chef/handler"
