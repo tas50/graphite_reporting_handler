@@ -6,7 +6,7 @@ A cookbook that a handler that sends chef run results to graphite.
 Requirements
 ============
 
-none.
+The `chef_handler` cookbook.
 
 Attributes
 ==========

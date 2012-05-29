@@ -4,3 +4,5 @@ license          "Apache 2.0"
 description      "Installs/Configures the Chef graphite handler originally developed by Ian Meyer"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.1"
+
+depends "chef_handler"
