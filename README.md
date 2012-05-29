@@ -20,7 +20,7 @@ This cookbook uses the following attributes to configure how it is installed.
 Usage
 =====
 
-Set the host and port properties on the node and include the "graphite-handler::default" recipe.
+Set the host and port properties on the node and include the "graphite_handler::default" recipe.
 
 Credits
 =======
