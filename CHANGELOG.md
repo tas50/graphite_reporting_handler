@@ -1,6 +1,8 @@
 ## v0.0.3:
 
-* Bug     : Use `Chef::Config[:file_cache_path]}` to determine the cache path rather than hardcoding it.
+* Enhance : Improve the error handling when the graphite server is unable to be accessed when the reporter handler
+            executes.
+* Bug     : Use `Chef::Config[:file_cache_path]}` to determine the cache path rather than hard coding it.
 
 ## v0.0.2:
 

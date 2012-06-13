@@ -47,11 +47,15 @@ class GraphiteReporting < Chef::Handler
       metrics[:fail] = 1
     end
 
-    g.push_to_graphite do |graphite|
-      metrics.each do |metric, value|
-        Chef::Log.debug("#{@metric_key}.#{metric} #{value} #{g.time_now}")
-        graphite.puts "#{@metric_key}.#{metric} #{value} #{g.time_now}"
+    begin
+      g.push_to_graphite do |graphite|
+        metrics.each do |metric, value|
+          Chef::Log.debug("#{@metric_key}.#{metric} #{value} #{g.time_now}")
+          graphite.puts "#{@metric_key}.#{metric} #{value} #{g.time_now}"
+        end
       end
+    rescue => e
+      Chef::Log.error("Error reporting to graphite: " + e)
     end
   end
 end
