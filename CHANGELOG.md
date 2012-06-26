@@ -1,3 +1,8 @@
+## v0.0.4:
+
+* Bug     : Stop attempting to print an exception when an error occurs writing to graphite as this can result in an
+            an attempt to render the entire state of the chef context if the exception refers to the context.
+
 ## v0.0.3:
 
 * Enhance : Improve the error handling when the graphite server is unable to be accessed when the reporter handler

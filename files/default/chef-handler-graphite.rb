@@ -55,7 +55,7 @@ class GraphiteReporting < Chef::Handler
         end
       end
     rescue => e
-      Chef::Log.error("Error reporting to graphite: " + e)
+      Chef::Log.error("Error reporting to graphite")
     end
   end
 end
