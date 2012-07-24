@@ -17,9 +17,7 @@
 if node['chef_client']['handler']['graphite']['host'] && node['chef_client']['handler']['graphite']['port']
   include_recipe "chef_handler"
 
-  gem_package "simple-graphite" do
-    action :nothing
-  end.run_action(:install)
+  chef_gem "simple-graphite"
 
   cookbook_file "#{Chef::Config[:file_cache_path]}/chef-handler-graphite.rb" do
     source "chef-handler-graphite.rb"

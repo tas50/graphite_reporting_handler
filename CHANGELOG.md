@@ -1,3 +1,7 @@
+## v0.0.5:
+
+* Bug     : Update to use chef_gem for compatibility with omnibus chef installs.
+
 ## v0.0.4:
 
 * Bug     : Stop attempting to print an exception when an error occurs writing to graphite as this can result in an
