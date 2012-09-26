@@ -1,7 +1,7 @@
 Description
 ===========
 
-[![Build Status](https://secure.travis-ci.org/realityforge-cookbooks/graphite_handler.png?branch=master)](http://travis-ci.org/realityforge/-cookbooks/graphite_handler)
+[![Build Status](https://secure.travis-ci.org/realityforge/chef-graphite_handler.png?branch=master)](http://travis-ci.org/realityforge/chef-graphite_handler)
 
 A cookbook that a handler that sends chef run results to graphite.
 
