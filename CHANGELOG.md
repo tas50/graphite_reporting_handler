@@ -1,6 +1,8 @@
 ## v0.0.6:
 
-* Enhance : Include ohai-system_packages plugin statistics if available.
+* Enhance : Include ohai-system_packages plugin statistics if available. Submitted by Lew Goettner.
+* Change  : Change the default prefix to "chef.#{node.chef_environment}.node.#{node['hostname']}". Submitted by
+            Lew Goettner.
 
 ## v0.0.5:
 
