@@ -29,4 +29,5 @@ Set the host and port properties on the node and include the "graphite_handler::
 Credits
 =======
 
-The handler was originally written by Ian Meyer and was converted to a cookbook by Peter Donald.
+The handler was originally written by Ian Meyer and was converted to a cookbook by Peter Donald. Contributions
+by Lew Goettner.
