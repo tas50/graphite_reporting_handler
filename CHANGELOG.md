@@ -2,6 +2,7 @@
 
 * Enhance : Include ohai-system_packages plugin statistics if available. Submitted by Lew Goettner.
 * Change  : Change the default prefix to have chef at the front. Submitted by Lew Goettner.
+* Change  : Change the default prefix to support empty hostname and downcase the hostname.
 
 ## v0.0.5:
 
