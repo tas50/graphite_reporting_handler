@@ -1,3 +1,5 @@
+## v0.0.7:
+
 ## v0.0.6:
 
 * Enhance : Include ohai-system_packages plugin statistics if available. Submitted by Lew Goettner.
