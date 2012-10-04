@@ -1,4 +1,4 @@
-## v0.0.7:
+## v0.0.8:
 
 * Enhance : Support Ruby 1.8 by including rubygems. Submitted by Julian Dunn.
 
