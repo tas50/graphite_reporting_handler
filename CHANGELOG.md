@@ -1,5 +1,7 @@
 ## v0.0.7:
 
+* Enhance : Support Ruby 1.8 by including rubygems. Submitted by Julian Dunn.
+
 ## v0.0.6:
 
 * Enhance : Include ohai-system_packages plugin statistics if available. Submitted by Lew Goettner.
