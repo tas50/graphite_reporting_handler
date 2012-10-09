@@ -36,8 +36,8 @@ class GraphiteReporting < Chef::Handler
     g.port = @graphite_port
 
     metrics = Hash.new
-    metrics[:updated_resources] = run_status.has_key? 'updated_resources' ? run_status.updated_resources.length : 0
-    metrics[:all_resources] = run_status.has_key? 'all_resources' ? run_status.all_resources.length : 0
+    metrics[:updated_resources] = run_status.respond_to?(:updated_resources) ? run_status.updated_resources.length : 0
+    metrics[:all_resources] = run_status.respond_to?(:all_resources) ? run_status.all_resources.length : 0
     metrics[:elapsed_time] = run_status.elapsed_time
 
     # Graph metrics from the Ohai system-packages plugin (https://github.com/finnlabs/ohai-system_packages/)
