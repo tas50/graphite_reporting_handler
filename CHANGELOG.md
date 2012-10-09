@@ -1,3 +1,8 @@
+## v0.0.10:
+
+* Bug     : Correctly handle the scenario where the chef run has failed early enough that the run_status has not
+            been fully defined. Submitted by Scott Smith.
+
 ## v0.0.8:
 
 * Enhance : Support Ruby 1.8 by including rubygems. Submitted by Julian Dunn.
