@@ -42,9 +42,9 @@ class GraphiteReporting < Chef::Handler
 
     # Graph metrics from the Ohai system-packages plugin (https://github.com/finnlabs/ohai-system_packages/)
     if node.has_key? 'system_packages'
-      metrics[:installed_packages] = node.system_packages.installed.size
-      metrics[:upgradeable_packages] = node.system_packages.upgradeable.size
-      metrics[:holding_packages] = node.system_packages.holding.size
+      metrics[:installed_packages] = node['system_packages']['installed'].size if node['system_packages']['installed']
+      metrics[:upgradeable_packages] = node['system_packages']['upgradeable'].size if node['system_packages']['upgradeable']
+      metrics[:holding_packages] = node['system_packages']['holding'].size if node['system_packages']['holding']
     end
 
     if run_status.success?

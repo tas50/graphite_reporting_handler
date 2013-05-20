@@ -1,5 +1,8 @@
 ## v0.0.10:
 
+* Bug     : Gracefully handle the presence of a 'system_packages' node attribute without the contained attributes
+            such as 'installed' etc. This will happen when the cookbook is present as a dependency but does not
+            appear in the run list.
 * Bug     : Correctly handle the scenario where the chef run has failed early enough that the run_status has not
             been fully defined. Submitted by Scott Smith.
 
