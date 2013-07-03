@@ -21,7 +21,9 @@ if node['chef_client']['handler']['graphite']['host'] && node['chef_client']['ha
 
   cookbook_file "#{Chef::Config[:file_cache_path]}/chef-handler-graphite.rb" do
     source "chef-handler-graphite.rb"
-    mode "0600"
+    if node['platform'] != 'windows'
+      mode "0600"
+    end
   end
 
   chef_handler "GraphiteReporting" do

@@ -1,5 +1,6 @@
 ## v0.0.10:
 
+* Enhance : Do not specify unix permissions on a windows host.
 * Bug     : Gracefully handle the presence of a 'system_packages' node attribute without the contained attributes
             such as 'installed' etc. This will happen when the cookbook is present as a dependency but does not
             appear in the run list.
