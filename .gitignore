@@ -1,10 +1,17 @@
-# Ignore IDEA project files
-/*.iml
-/*.ipr
-/*.iws
+.vagrant
+Berksfile.lock
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+/cookbooks
 
-# Ignore the generated json file
-/metadata.json
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
 
-# Ignore the patch file generated when integrating changes
-/patch.*
+.kitchen/
+.kitchen.local.yml

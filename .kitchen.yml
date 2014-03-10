@@ -1,0 +1,17 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[graphite_reporting_handler::default]
+    attributes:
+      graphite_handler:
+        graphite_host: "192.168.128.191"
