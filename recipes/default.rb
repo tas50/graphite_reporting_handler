@@ -14,25 +14,28 @@
 # limitations under the License.
 #
 
-if node['chef_client']['handler']['graphite']['host'] && node['chef_client']['handler']['graphite']['port']
-  include_recipe "chef_handler"
 
-  chef_gem "simple-graphite"
+include_recipe 'chef_handler'
 
-  cookbook_file "#{Chef::Config[:file_cache_path]}/chef-handler-graphite.rb" do
-    source "chef-handler-graphite.rb"
-    if node['platform'] != 'windows'
-      mode "0600"
-    end
+
+handler_file = 'chef-handler-graphite-reporting.rb'
+handler_path = File.join(Chef::Config[:file_cache_path], handler_file)
+
+cookbook_file handler_path do
+  source handler_file
+  if node['platform'] != 'windows'
+    mode '0600'
   end
+end
 
-  chef_handler "GraphiteReporting" do
-    source "#{Chef::Config[:file_cache_path]}/chef-handler-graphite.rb"
-    arguments [
-                :metric_key => node['chef_client']['handler']['graphite']['prefix'],
-                :graphite_host => node['chef_client']['handler']['graphite']['host'],
-                :graphite_port => node['chef_client']['handler']['graphite']['port']
-              ]
-    action :enable
-  end
+chef_handler 'GraphiteReportingHandler' do
+  action :enable
+  source handler_path
+  arguments [
+    :metric_prefix => node['graphite_reporting_handler']['metric_prefix'],
+    :metric_key => node['graphite_reporting_handler']['metric_key'],
+    :graphite_host => node['graphite_reporting_handler']['graphite_host'],
+    :graphite_port => node['graphite_reporting_handler']['graphite_port'],
+    :graphite_protocol => node['graphite_reporting_handler']['graphite_protocol']
+  ]
 end

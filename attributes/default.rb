@@ -14,6 +14,15 @@
 # limitations under the License.
 #
 
-default['chef_client']['handler']['graphite']['host'] = nil
-default['chef_client']['handler']['graphite']['port'] = nil
-default['chef_client']['handler']['graphite']['prefix'] = "chef.#{node.chef_environment}.node.#{(node['hostname']||'').downcase}"
+
+default['graphite_reporting_handler']['graphite_host'] = 'localhost'
+default['graphite_reporting_handler']['graphite_port'] = '2003'
+default['graphite_reporting_handler']['graphite_protocol'] = 'tcp'
+default['graphite_reporting_handler']['metric_prefix'] = nil
+default['graphite_reporting_handler']['metric_key'] = [
+  'chef',
+  'runs',
+  node.chef_environment,
+  'node',
+  (node['hostname'] || '').downcase
+].join('.')
