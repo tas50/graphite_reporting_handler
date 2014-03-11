@@ -1,0 +1,15 @@
+The development of this Cookbook was made possible by:
+
+* [Greg Albrecht](https://github.com/ampledata)
+* [Peter Donald](https://github.com/realityforge)
+* [Ian Meyer](https://github.com/imeyer)
+* [Lew Goettner](https://github.com/lewg)
+* [Julian Dunn](https://github.com/juliandunn)
+* [Peter Fern](https://github.com/pdf)
+* [Jeff Blaine](https://github.com/jblaine)
+* [Scott Smith](https://github.com/ohlol)
+* [John E. Vincent](https://github.com/lusis)
+* [Chris Griego](https://github.com/cgriego)
+* [Peter Schultz](https://github.com/pschultz)
+* [Jon Cowie](https://github.com/jonlives)
+* [Patrick McDonnell]()

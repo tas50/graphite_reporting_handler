@@ -1,32 +1,72 @@
-Description
-===========
+# graphite_reporting_handler Cookbook
 
-[![Build Status](https://secure.travis-ci.org/realityforge/chef-graphite_handler.png?branch=master)](http://travis-ci.org/realityforge/chef-graphite_handler)
+## Description
 
-A cookbook that includes a report handler for sending chef run results to graphite. If you have
-the [ohai-system_packages](https://github.com/finnlabs/ohai-system_packages/)
-plugin installed, it will also send package statistics to graphite.
+A Chef Cookbook that installs & configures a report handler for sending Chef run
+metrics to Graphite. If you have the [system_packages](https://github.com/finnlabs/ohai-system_packages/)
+Ohai plugin installed, this handler will also send package metrics to Graphite.
 
-Requirements
-============
 
-The `chef_handler` cookbook.
+## Requirements
 
-Attributes
-==========
+The `chef_handler` Cookbook.
+
+
+## Attributes
 
 This cookbook uses the following attributes to configure how it is installed.
 
-* `node['chef_client']['handler']['graphite']['host']` - The graphite server host.
-* `node['chef_client']['handler']['graphite']['port']` - The graphite server port.
-* `node['chef_client']['handler']['graphite']['prefix']` - The prefix appended to statistics sent to graphite. Defaults to `"chef.#{node.chef_environment}.node.#{node['hostname']}"`.
+* `node['graphite_reporting_handler']['graphite_host']` - Host where Graphite's
+Carbon daemon is accepting metrics. Default: `localhost`
+* `node['graphite_reporting_handler']['graphite_port']` - Port where Graphite's Carbon
+daemon is accepting metrics. Default: `2003`
+* `node['graphite_reporting_handler']['graphite_protocol']` - Protocol for
+communicating with Graphite's Carbon daemon. Default: `tcp`
+* `node['graphite_reporting_handler']['metric_path']` - Metric path, or queue.
+Default: `chef.#{node.chef_environment}.node.#{node['hostname']}`
+* `node['graphite_reporting_handler']['metric_prefix']` - Prepended to the metric_path,
+useful for [Hosted Graphite's](http://hostedgraphite.com) API Key. Default: `nil`
 
-Usage
-=====
 
-Set the host and port attributes on the node and include the "graphite_handler::default" recipe.
+## Usage
 
-Credits
-=======
+1. Set Attributes for your Graphite Carbon host:
 
-The handler was originally written by Ian Meyer and was converted to a cookbook by Peter Donald. Contributions by Lew Goettner, Julian Dunn and others.
+  ```json
+  default_attributes(
+    {'graphite_reporting_handler' => {'graphite_host' => 'metrics.tacocopter.com'}}
+  )
+  ```
+
+2. Add the **graphite_reporting_handler** to your Run List:
+
+  `run_list('recipe[graphite_reporting_handler]')`
+
+3. Look at graphs, impress your friends, go home early?
+
+
+## Credit & Inspiration
+The original Graphite Reporting Handler was written by Ian Meyer, and
+was converted into a Cookbook by Peter Donald, et al. The original Reporting Handler
+was scrubbed of the *graphite-simple* Gem requirement by the team at Etsy. This
+Cookbook was derived from these sources and adds UDP and metric_prefix support.
+
+
+## Contributors
+See CONTRIBUTORS.md
+
+
+## Author
+Greg Albrecht (<gba@onbeep.com>)
+
+
+## License
+Apache License, Version 2.0
+
+
+## Copyright
+Copyright 2014 OnBeep, Inc.
+
+
+## Source
+https://github.com/OnBeep/cookbook-graphite_reporting_handler

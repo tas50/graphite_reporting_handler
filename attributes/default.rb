@@ -1,24 +1,22 @@
+#!/usr/bin/env ruby
 #
-# Copyright Peter Donald
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Attributes:: default
+# Cookbook:: graphite_reporting_handler
+# Author:: Greg Albrecht (<gba@onbeep.com>)
+# Copyright:: Copyright 2014 OnBeep, Inc.
+# License:: Apache License, Version 2.0
+# Source:: https://github.com/OnBeep/cookbook-graphite_reporting_handler
 #
 
 
 default['graphite_reporting_handler']['graphite_host'] = 'localhost'
 default['graphite_reporting_handler']['graphite_port'] = '2003'
 default['graphite_reporting_handler']['graphite_protocol'] = 'tcp'
+
+# Prepended to the metric_key below, useful for hostedgraphite.com's API Key:
 default['graphite_reporting_handler']['metric_prefix'] = nil
+
+# This returns something like: chef.runs._default.node.tacocopter_com
 default['graphite_reporting_handler']['metric_key'] = [
   'chef',
   'runs',
