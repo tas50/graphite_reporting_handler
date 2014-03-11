@@ -81,3 +81,6 @@ guard:
 
 foodcritic:
 	foodcritic .
+
+publish:
+	knife cookbook site share graphite_reporting_handler Networking -o ..
