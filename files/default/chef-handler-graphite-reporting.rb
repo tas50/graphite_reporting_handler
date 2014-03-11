@@ -1,10 +1,15 @@
 #!/usr/bin/env ruby
-# Graphite Chef Handler.
+# Graphite Reporting Handler for Chef - Sends chef-client run metrics to Graphite.
 #
 # Inspired by:
 #   - Etsy's Graphite Chef Handler: https://github.com/etsy/chef-handlers/blob/master/graphite.rb
 #   - Ian Meyer's Graphite Chef Handler: https://github.com/imeyer/chef-handler-graphite
+#   - Peter Donald's Graphite Handler Cookbook: https://github.com/realityforge/chef-graphite_handler
 #
+# Author:: Greg Albrecht (<gba@onbeep.com>)
+# Copyright:: Copyright 2014 OnBeep, Inc.
+# License:: Apache License, Version 2.0
+# Source:: https://github.com/OnBeep/cookbook-graphite_reporting_handler
 #
 
 
@@ -25,7 +30,7 @@ class GraphiteReportingHandler < Chef::Handler
   end
 
   def report
-    Chef::Log.debug('GraphiteHandler loaded as a Chef Handler.')
+    Chef::Log.debug('GraphiteReportingHandler loaded as a Chef Handler.')
 
     metric_lines = []
     time = Time.now
@@ -61,7 +66,7 @@ class GraphiteReportingHandler < Chef::Handler
       metric_line = [metric_queue, value, time.to_i].join(' ')
       metric_lines << metric_line
 
-      Chef::Log.debug("GraphiteHandler metric: #{metric_line}")
+      Chef::Log.debug("GraphiteReportingHandler metric: #{metric_line}")
     end
 
     begin
@@ -76,7 +81,7 @@ class GraphiteReportingHandler < Chef::Handler
         s.close
       end
     rescue => e
-      Chef::Log.error("GraphiteHandler error reporting: #{e}")
+      Chef::Log.error("GraphiteReportingHandler error reporting: #{e}")
     end
   end
 end

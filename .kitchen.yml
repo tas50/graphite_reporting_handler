@@ -13,5 +13,3 @@ suites:
     run_list:
       - recipe[graphite_reporting_handler::default]
     attributes:
-      graphite_handler:
-        graphite_host: "192.168.128.191"
