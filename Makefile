@@ -7,80 +7,52 @@
 #
 
 
+# Global/env vars:
+
 .DEFAULT_GOAL := install
 
+BUNDLE_CMD ?= ~/.rbenv/shims/bundle
 
-test: install kitchen_test
-
-install: install_bundle bundle_install berks_install vagrant_plugins
-
-update: bundle_update berks_update
-
-destroy: vagrant_destroy kitchen_destroy
+BUNDLE_EXEC ?= bundle exec
 
 
-install_bundle:
-	gem install bundle
+# Target groups:
+
+test: install foodcritic kitchen_test
+
+install: $(BUNDLE_CMD) bundle_install
+
+clean: kitchen_destroy
+
+
+# Bundler itself:
+
+$(BUNDLE_CMD):
+	gem install bundler
 
 bundle_install:
 	bundle install
 
-bundle_update:
-	bundle update
 
-berks_install:
-	berks install
-
-berks_update:
-	berks update
-
-vagrant_up:
-	vagrant up
-
-vagrant_provision:
-	vagrant provision
-
-vagrant_destroy:
-	vagrant destroy -f
-
-vagrant_plugins: vagrant_plugin_omnibus vagrant_plugin_berkshelf vagrant_plugin_vbguest
-
-vagrant_plugin_omnibus:
-	vagrant plugin install vagrant-omnibus
-
-vagrant_plugin_berkshelf:
-	vagrant plugin install --plugin-version 3.0.0.beta5 berkshelf
-	vagrant plugin install --plugin-version 1.4.0.dev1 vagrant-berkshelf
-
-vagrant_plugin_vbguest:
-	vagrant plugin install vagrant-vbguest
+# Post bundler targets:
 
 kitchen_converge:
-	kitchen converge
+	$(BUNDLE_EXEC) kitchen converge
 
 kitchen_destroy:
-	kitchen destroy
-
-kitchen_setup:
-	kitchen setup
+	$(BUNDLE_EXEC) kitchen destroy
 
 kitchen_verify:
-	kitchen verify
-
-kitchen_list:
-	kitchen list
+	$(BUNDLE_EXEC) kitchen verify
 
 kitchen_test:
-	kitchen test
-
-guard_init:
-	guard init
-
-guard:
-	guard
+	$(BUNDLE_EXEC) kitchen test
 
 foodcritic:
-	foodcritic .
+	$(BUNDLE_EXEC) foodcritic .
+
+
+# Knife targets:
 
 publish:
 	knife cookbook site share graphite_reporting_handler Networking -o ..
