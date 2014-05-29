@@ -69,4 +69,4 @@ Copyright 2014 OnBeep, Inc.
 
 
 ## Source
-https://github.com/OnBeep/cookbook-graphite_reporting_handler
+https://github.com/onbeep-cookbooks/graphite_reporting_handler
