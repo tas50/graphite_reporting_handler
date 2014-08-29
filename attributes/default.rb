@@ -8,7 +8,6 @@
 # Source:: https://github.com/onbeep-cookbooks/graphite_reporting_handler
 #
 
-
 default['graphite_reporting_handler']['graphite_host'] = 'localhost'
 default['graphite_reporting_handler']['graphite_port'] = '2003'
 default['graphite_reporting_handler']['graphite_protocol'] = 'tcp'

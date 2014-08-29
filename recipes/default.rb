@@ -12,13 +12,10 @@
 # Source:: https://github.com/onbeep-cookbooks/graphite_reporting_handler
 #
 
-
 include_recipe 'chef_handler'
-
 
 handler_file = 'chef-handler-graphite-reporting.rb'
 handler_path = File.join(Chef::Config[:file_cache_path], handler_file)
-
 
 cookbook_file handler_path do
   source handler_file

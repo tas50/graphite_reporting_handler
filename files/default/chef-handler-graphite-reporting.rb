@@ -12,11 +12,9 @@
 # Source:: https://github.com/onbeep-cookbooks/graphite_reporting_handler
 #
 
-
 require 'chef'
 require 'chef/handler'
 require 'socket'
-
 
 class GraphiteReportingHandler < Chef::Handler
   attr_writer :metric_prefix, :metric_key, :graphite_host, :graphite_port, :graphite_protocol
@@ -34,7 +32,7 @@ class GraphiteReportingHandler < Chef::Handler
 
     metric_lines = []
     time = Time.now
-    metrics = Hash.new
+    metrics = {}
 
     if run_status.respond_to?(:updated_resources)
       metrics[:updated_resources] = run_status.updated_resources.length
@@ -50,9 +48,9 @@ class GraphiteReportingHandler < Chef::Handler
 
     # Graph metrics from the Ohai system-packages plugin:
     #   - https://github.com/finnlabs/ohai-system_packages/
-    if node.has_key?('system_packages')
+    if node.key?('system_packages')
       node['system_packages'].each do |k, v|
-        metrics[k, 'packages'.join('_')] = v.size if v and v.respond_to?(:size)
+        metrics[k, 'packages'.join('_')] = v.size if v && v.respond_to?(:size)
       end
     end
 
